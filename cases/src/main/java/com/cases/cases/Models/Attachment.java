@@ -6,7 +6,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Getter@Setter
-@Entity
+@Entity(name="attachment")
 public class Attachment {
 
     @Id

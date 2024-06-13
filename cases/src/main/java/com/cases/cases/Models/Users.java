@@ -1,6 +1,7 @@
 package com.cases.cases.Models;
 
 import jakarta.persistence.*;
+
 import jakarta.validation.constraints.Email;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -8,24 +9,32 @@ import lombok.Setter;
 
 import java.util.List;
 
-@Entity@Setter@Getter
-@AllArgsConstructor
+@Entity(name = "users")
+@Getter
+@Setter
 public class Users {
-
-    @Id@GeneratedValue
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(unique = true)
     private String username;
-    @Column@Email
+    private String password;
     private String email;
     private String fname;
-    private String lname;
+    private String lname;;
     private Long phone;
     private String address;
-    private String password;
+    private Role role;
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<SupportCase> supportCases;
-    public Users() {
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<Comment> comments;
 
+    public boolean checkPassword(String rawPassword) {
+        // Implement password check logic
+        return this.password.equals(rawPassword);
+    }
+
+    public Users() {
     }
 }

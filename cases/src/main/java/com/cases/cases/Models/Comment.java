@@ -8,20 +8,18 @@ import lombok.Setter;
 import java.time.LocalDateTime;
 
 
-@Entity@Getter@Setter
+@Entity(name = "comment")@Getter@Setter
 public class Comment {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    private String content;
+    private LocalDateTime createdAt;
 
     @ManyToOne
-    @JoinColumn(name = "support_case_id")
     private SupportCase supportCase;
 
     @ManyToOne
-    @JoinColumn(name = "user_id")
     private Users user;
-
-    private String content;
-    private LocalDateTime createdAt;
 }
