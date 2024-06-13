@@ -1,9 +1,6 @@
 package com.cases.cases.Models;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -23,6 +20,8 @@ public class Users {
     private String lname;
     private Long phone;
     private String address;
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<SupportCase> supportCases;
     public Users() {
 
     }
