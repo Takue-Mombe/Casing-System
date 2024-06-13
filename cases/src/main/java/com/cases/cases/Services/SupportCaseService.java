@@ -24,4 +24,8 @@ public class SupportCaseService {
     public SupportCase save(SupportCase supportCase) {
         return supportCaseRepository.save(supportCase);
     }
+
+    public List<SupportCase> findAll() {
+        return  supportCaseRepository.findAll();
+    }
 }

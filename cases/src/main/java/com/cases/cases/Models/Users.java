@@ -22,6 +22,7 @@ public class Users {
     private String lname;
     private Long phone;
     private String address;
+    private String password;
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<SupportCase> supportCases;
     public Users() {

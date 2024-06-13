@@ -1,5 +1,6 @@
 package com.cases.cases.Services;
 
+import com.cases.cases.Models.Attachment;
 import com.cases.cases.Repositories.AttachmentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
